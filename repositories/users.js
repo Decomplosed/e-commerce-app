@@ -32,25 +32,28 @@ class UsersRepository {
   }
 
   async writeAll(records) {
-    await fs.promises.writeFile(this.filename, JSON.stringify(records, null, 2))
+    await fs.promises.writeFile(
+      this.filename,
+      JSON.stringify(records, null, 2)
+    )
   }
 
   randomId() {
     return crypto.pseudoRandomBytes(4).toString('hex')
+  }
+
+  async getOne(id) {
+    const records = await this.getAll()
+    return records.find(record => record.id === id)
   }
 }
 
 const test = async () => {
   const repo = new UsersRepository('users.json')
 
-  await repo.create({
-    email: 'test@test.com',
-    password: 'password'
-  })
+  const user = await repo.getOne('f207194c')
 
-  const users = await repo.getAll()
-
-  console.log(users)
+  console.log(user)
 }
 
 test()
