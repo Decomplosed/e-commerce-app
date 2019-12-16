@@ -19,4 +19,4 @@ class UsersRepository {
   }
 }
 
-const repo = new UsersRepository()
+const repo = new UsersRepository('users.json')
