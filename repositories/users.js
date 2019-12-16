@@ -10,7 +10,7 @@ class UsersRepository {
     try {
       fs.accessSync(this.filename)
     } catch (err) {
-      fs.writeFile(this.filename, '[]')
+      fs.writeFileSync(this.filename, '[]')
     }
   }
 
