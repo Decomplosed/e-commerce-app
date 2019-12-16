@@ -25,14 +25,15 @@ const bodyParser = (req, res, next) => {
         formData[key] = value
       }
       req.body = formData
+      next()
     })
   } else {
     next()
   }
 }
 
-app.post('/', (req, res) => {
-  console.log(req)
+app.post('/', bodyParser, (req, res) => {
+  console.log(req.body)
   res.send('Account created')
 })
 
