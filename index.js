@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const cookieSession = require('cookie-session')
 const usersRepo = require('./repositories/users')
-
 
 const app = express()
 
