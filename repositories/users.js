@@ -41,6 +41,8 @@ class UsersRepository {
 
     const [hashed, salt] = saved.split('.')
     const hashedSupplied = await scrypt(supplied, salt, 64)
+
+    return hashed === hashedSupplied
   }
 
   async writeAll(records) {
