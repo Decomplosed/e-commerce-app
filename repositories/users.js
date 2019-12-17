@@ -33,6 +33,10 @@ class UsersRepository {
     return attrs
   }
 
+  async comparePassword(saved, supplied) {
+
+  }
+
   async writeAll(records) {
     await fs.promises.writeFile(
       this.filename,
