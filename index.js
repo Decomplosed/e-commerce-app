@@ -46,6 +46,10 @@ app.post('/signup', async (req, res) => {
   res.send('Account created')
 })
 
+app.get('/signout', (req, res) => {
+  req.session = null
+  res.send('You are logged out')
+})
 
 
 app.listen(3000, () => {
