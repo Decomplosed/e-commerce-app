@@ -51,6 +51,17 @@ app.get('/signout', (req, res) => {
   res.send('You are logged out')
 })
 
+app.get('/signin', (req, res) => {
+  res.send(`
+    <div>
+      <form method="POST">
+        <input name="email" placeholder="Email" />
+        <input name="password" placeholder="Password" />
+        <button>Sign In</button>
+      </form>
+    </div>
+  `)
+})
 
 app.listen(3000, () => {
   console.log('Listening')
