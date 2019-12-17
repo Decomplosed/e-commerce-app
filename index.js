@@ -77,8 +77,8 @@ app.post('/signin', async (req, res) => {
     password
   )
 
-  if () {
-    res.send('Invalid password')
+  if (!validPassword) {
+    return res.send('Invalid password')
   }
 
   req.session.userId = user.id
