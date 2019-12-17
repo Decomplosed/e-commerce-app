@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const usersRepo = require('./repositories/users')
 
+
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -32,7 +33,9 @@ app.post('/', async (req, res) => {
     return res.send('Passwords must match')
   }
 
-  await usersRepo.create({ email, password })
+  const user = await usersRepo.create({ email, password })
+
+
 
   res.send('Account created')
 })
