@@ -40,7 +40,7 @@ app.post('/', async (req, res) => {
 
   const user = await usersRepo.create({ email, password })
 
-
+  req.session.userId = user.id
 
   res.send('Account created')
 })
