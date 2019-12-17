@@ -75,3 +75,5 @@ router.post('/signin', async (req, res) => {
   req.session.userId = user.id
   res.send('You are signed in!')
 })
+
+module.exports = router
