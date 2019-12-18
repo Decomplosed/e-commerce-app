@@ -1,12 +1,11 @@
 const express = require('express')
 const usersRepo = require('../../repositories/users')
+const signUpTemplate = require('../../views/admin/auth/signup')
 
 const router = express.Router()
 
 router.get('/signup', (req, res) => {
-  res.send(`
-    
-  `)
+  res.send(signUpTemplate({ req }))
 })
 
 router.post('/signup', async (req, res) => {
