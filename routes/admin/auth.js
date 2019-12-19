@@ -52,7 +52,7 @@ router.get('/signin', (req, res) => {
 router.post(
   '/signin',
   [
-    
+    requireEmailExists,
     check('password')
       .trim()
       .custom(async (password, { req }) => {
