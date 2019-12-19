@@ -7,7 +7,8 @@ const signInTemplate = require('../../views/admin/auth/signin')
 const {
   requireEmail,
   requirePassword,
-  requirePasswordConfirmation
+  requirePasswordConfirmation,
+  requireEmailExists
 } = require('./validators')
 
 const router = express.Router()
