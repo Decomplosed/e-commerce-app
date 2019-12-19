@@ -8,7 +8,8 @@ const {
   requireEmail,
   requirePassword,
   requirePasswordConfirmation,
-  requireEmailExists
+  requireEmailExists,
+  requireValidPassword
 } = require('./validators')
 
 const router = express.Router()
