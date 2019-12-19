@@ -47,7 +47,7 @@ router.get('/signout', (req, res) => {
 })
 
 router.get('/signin', (req, res) => {
-  res.send(signInTemplate())
+  res.send(signInTemplate({}))
 })
 
 router.post(
