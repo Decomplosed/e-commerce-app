@@ -14,6 +14,7 @@ module.exports = ({ errors }) => {
       <div>
         <form method="POST">
           <input name="email" placeholder="Email" />
+          ${getError(errors, 'email')}
           <input name="password" placeholder="Password" />
           <button>Sign In</button>
         </form>
