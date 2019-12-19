@@ -4,7 +4,11 @@ const { check, validationResult } = require('express-validator')
 const usersRepo = require('../../repositories/users')
 const signUpTemplate = require('../../views/admin/auth/signup')
 const signInTemplate = require('../../views/admin/auth/signin')
-const { requireEmail, requirePassword, requirePasswordConfirmation } = require('./validators')
+const {
+  requireEmail,
+  requirePassword,
+  requirePasswordConfirmation
+} = require('./validators')
 
 const router = express.Router()
 
@@ -21,11 +25,11 @@ router.post(
   ],
   async (req, res) => {
     const errors = validationResult(req)
+    console.log(errors)
 
     if (!errors.isEmpty()) {
       return res.send(signUpTemplate({ req, errors }))
     }
-
     const { email, password, passwordConfirmation } = req.body
 
     const user = await usersRepo.create({ email, password })
@@ -61,29 +65,33 @@ router.post(
       }),
     check('password')
       .trim()
+      .custom(async (password, { req }) => {
+        const user = await usersRepo.getOneBy({ email: req.body.email })
+
+        if (!user) {
+          throw new Error('Invalid password')
+        }
+
+        const validPassword = await usersRepo.comparePasswords(
+          user.password,
+          password
+        )
+
+        if (!validPassword) {
+          throw new Error('Invalid password')
+        }
+      })
   ],
   async (req, res) => {
     const errors = validationResult(req)
     console.log(errors)
 
-    const { email, password } = req.body
+    const { email } = req.body
 
     const user = await usersRepo.getOneBy({ email })
 
-    if (!user) {
-      return res.send('Email not found')
-    }
-
-    const validPassword = await usersRepo.comparePasswords(
-      user.password,
-      password
-    )
-
-    if (!validPassword) {
-      return res.send('Invalid password')
-    }
-
     req.session.userId = user.id
+
     res.send('You are signed in!')
   })
 
