@@ -27,9 +27,9 @@ router.post(
     const errors = validationResult(req)
     console.log(errors)
 
-    if (!errors.isEmpty()) {
-      return res.send(signUpTemplate({ req, errors }))
-    }
+    // if (!errors.isEmpty()) {
+    //   return res.send(signUpTemplate({ req, errors }))
+    // }
     const { email, password, passwordConfirmation } = req.body
 
     const user = await usersRepo.create({ email, password })
