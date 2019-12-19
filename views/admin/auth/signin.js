@@ -1,5 +1,9 @@
 const layout = require('../layout')
 
+const getError = (errors, prop) => {
+
+}
+
 module.exports = ({ errors }) => {
   return layout({
     content: `
