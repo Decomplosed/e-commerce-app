@@ -51,18 +51,7 @@ router.get('/signin', (req, res) => {
 router.post(
   '/signin',
   [
-    check('email')
-      .trim()
-      .normalizeEmail()
-      .isEmail()
-      .withMessage('Must provide a valid email')
-      .custom(async email => {
-        const user = await usersRepo.getOneBy({ email })
-
-        if (!user) {
-          throw new Error('Email not found!')
-        }
-      }),
+    
     check('password')
       .trim()
       .custom(async (password, { req }) => {
