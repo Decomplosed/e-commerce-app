@@ -13,8 +13,16 @@ router.get('/admin/products/new', (req, res) => {
   res.send(productsNewTemplate({}))
 })
 
-router.post('admin/pridcuts/new', [], (req, res) => {
+router.post(
+  'admin/pridcuts/new',
+  [
+    requirePrice,
+    requireTitle
+  ],
+  (req, res) => {
+    console.log()
 
-})
+    res.send('submitted')
+  })
 
 module.exports = router
