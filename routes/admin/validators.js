@@ -7,6 +7,11 @@ module.exports = {
       .trim()
       .isLength({ min: 5, max: 40 }),
 
+  requirePrice:
+    check('price')
+      .trim()
+      .toFloat()
+      .isFloat({ min: 1 }),
 
   requireEmail:
     check('email')
