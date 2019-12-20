@@ -21,7 +21,8 @@ router.post(
     requireTitle
   ],
   (req, res) => {
-    console.log()
+    const errors = validationResult(req)
+    console.log(errors)
 
     res.send('submitted')
   })
