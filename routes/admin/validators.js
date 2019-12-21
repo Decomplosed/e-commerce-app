@@ -12,7 +12,8 @@ module.exports = {
     check('price')
       .trim()
       .toFloat()
-      .isFloat({ min: 1 }),
+      .isFloat({ min: 1 })
+      .withMessage('Must be a number greater than 1'),
 
   requireEmail:
     check('email')
