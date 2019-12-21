@@ -17,12 +17,14 @@ router.get('/admin/products/new', (req, res) => {
 router.post(
   'admin/products/new',
   [
-    requirePrice,
-    requireTitle
+    requireTitle,
+    requirePrice
   ],
   (req, res) => {
     const errors = validationResult(req)
     console.log(errors)
+
+    console.log(req.body)
 
     res.send('submitted')
   })
