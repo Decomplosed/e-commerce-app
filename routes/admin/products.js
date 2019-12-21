@@ -15,16 +15,16 @@ router.get('/admin/products/new', (req, res) => {
   res.send(productsNewTemplate({}))
 })
 
-router.post('/admin/products/new', [requireTitle, requirePrice], (req, res) => {
-  const errors = validationResult(req)
+router.post(
+  '/admin/products/new',
+  [requireTitle, requirePrice],
+  upload.single('image'),
+  (req, res) => {
+    const errors = validationResult(req)
 
-  req.on('data', data => {
-    console.log(data.toString())
+    console.log(req.file)
+
+    res.send('submitted')
   })
-
-  console.log(req.body)
-
-  res.send('submitted')
-})
 
 module.exports = router
