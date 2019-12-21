@@ -15,7 +15,7 @@ router.get('/admin/products/new', (req, res) => {
 })
 
 router.post(
-  'admin/pridcuts/new',
+  'admin/products/new',
   [
     requirePrice,
     requireTitle
