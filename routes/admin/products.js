@@ -17,7 +17,7 @@ router.get('/admin/products', requireAuth, async (req, res) => {
   res.send(productsIndexTemplate({ products }))
 })
 
-router.get('/admin/products/new', (req, res) => {
+router.get('/admin/products/new', requireAuth, (req, res) => {
 
 
   res.send(productsNewTemplate({}))
