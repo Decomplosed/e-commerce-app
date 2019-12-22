@@ -25,6 +25,7 @@ router.get('/admin/products/new', requireAuth, (req, res) => {
 
 router.post(
   '/admin/products/new',
+  requireAuth,
   upload.single('image'),
   [requireTitle, requirePrice],
   handleErrors(productsNewTemplate),
