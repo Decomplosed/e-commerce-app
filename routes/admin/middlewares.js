@@ -11,5 +11,9 @@ module.exports = {
 
       next()
     }
+  },
+
+  requireAuth(req, res, next) {
+
   }
 }
