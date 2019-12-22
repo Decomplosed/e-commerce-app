@@ -31,7 +31,7 @@ router.post(
 
     await productsRepo.create({ title, price, image })
 
-    res.send('submitted')
+    res.redirect('/admin/products')
   })
 
 module.exports = router
