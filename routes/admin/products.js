@@ -20,6 +20,10 @@ router.get('/admin/products', async (req, res) => {
 })
 
 router.get('/admin/products/new', (req, res) => {
+  if (!req.session.userId) {
+    return res.redirect('/signin')
+  }
+
   res.send(productsNewTemplate({}))
 })
 
