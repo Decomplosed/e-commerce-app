@@ -47,7 +47,7 @@ router.get('/admin/products/:id/edit', async (req, res) => {
     return res.send('Product not found')
   }
 
-
+  res.send(productsEditTemplate({ product }))
 })
 
 module.exports = router
