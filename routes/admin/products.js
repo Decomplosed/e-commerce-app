@@ -42,7 +42,7 @@ router.post(
   })
 
 router.get('/admin/products/:id/edit', async (req, res) => {
-  const product = await productsRepo(req.params.id)
+  const product = await productsRepo.getOne(req.params.id)
 
   if (!product) {
     return res.send('Product not found')
