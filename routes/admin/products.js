@@ -40,8 +40,12 @@ router.post(
     res.redirect('/admin/products')
   })
 
-router.get('/admin/products/:id/edit', (req, res) => {
-  console.log(req.params.id)
+router.get('/admin/products/:id/edit', async (req, res) => {
+  const products = await productsRepo(req.params.id)
+
+
+
+
 })
 
 module.exports = router
