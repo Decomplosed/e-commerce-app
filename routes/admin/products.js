@@ -33,6 +33,9 @@ router.post(
   [requireTitle, requirePrice],
   handleErrors(productsNewTemplate),
   async (req, res) => {
+    if (!req.session.userId) {
+      return res.redirect('/signin')
+    }
 
     const image = req.file.buffer.toString('base64')
     const { title, price } = req.body
