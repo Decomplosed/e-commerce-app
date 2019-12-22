@@ -6,6 +6,7 @@ module.exports = ({ product }) => {
       <form method="POST">
         <input name="title" value="${product.title}" />
         <input name="price" value="${product.price}" />
+        <input name="image" type="file" value="${product.image}" />
         <button>Submit</button>
       </form>
     `
