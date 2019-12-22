@@ -33,7 +33,7 @@ router.post(
 
     req.session.userId = user.id
 
-    res.send('Account created')
+    res.redirect('/admin/products')
   })
 
 router.get('/signout', (req, res) => {
