@@ -5,7 +5,7 @@ module.exports = ({ product }) => {
     content: `
       <form method="POST">
         <input name="title" value="${product.title}" />
-        
+        <input name="price" value="${product.price}" />
       </form>
     `
   })
