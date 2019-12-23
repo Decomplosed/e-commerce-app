@@ -7,7 +7,7 @@ module.exports = {
 
       if (!errors.isEmpty()) {
         if (dataCb) {
-
+          const data = await dataCb(req)
         }
 
         return res.send(templateFunc({ errors }))
