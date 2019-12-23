@@ -58,7 +58,9 @@ router.post(
   [requireTitle, requirePrice],
   handleErrors(productsEditTemplate),
   async (req, res) => {
+    const changes = req.body
 
+    
   })
 
 module.exports = router
