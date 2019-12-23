@@ -63,6 +63,8 @@ router.post(
     if (req.file) {
       changes.image = req.file.buffer.toString('base64')
     }
+
+    await productsRepo.update(req.params.id, { changes })
   })
 
 module.exports = router
