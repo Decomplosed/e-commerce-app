@@ -6,8 +6,9 @@ module.exports = {
       const errors = validationResult(req)
 
       if (!errors.isEmpty()) {
+        let data
         if (dataCb) {
-          const data = await dataCb(req)
+          data = await dataCb(req)
         }
 
         return res.send(templateFunc({ errors }))
