@@ -11,7 +11,7 @@ module.exports = {
           data = await dataCb(req)
         }
 
-        return res.send(templateFunc({ errors }))
+        return res.send(templateFunc({ errors, ...data }))
       }
 
       next()
