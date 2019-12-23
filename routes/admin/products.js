@@ -60,7 +60,9 @@ router.post(
   async (req, res) => {
     const changes = req.body
 
-    
+    if (req.file) {
+      changes.image = req.file.buffer.toString('base64')
+    }
   })
 
 module.exports = router
