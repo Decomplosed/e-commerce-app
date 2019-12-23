@@ -69,6 +69,8 @@ router.post(
     } catch (err) {
       return res.send('Could not find item')
     }
+
+    res.redirect('/admin/products')
   })
 
 module.exports = router
