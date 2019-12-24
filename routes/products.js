@@ -6,7 +6,7 @@ const router = express.Router()
 
 router.get('/', async (req, res) => {
   const products = productsRepo.getAll()
-  res.send('Products!!!!')
+  res.send(productsIndexTemplate({ products }))
 })
 
 module.exports = router
