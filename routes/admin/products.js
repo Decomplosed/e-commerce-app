@@ -76,4 +76,8 @@ router.post(
     res.redirect('/admin/products')
   })
 
+router.post('/admin/products/:id/delete', requireAuth, async (req, res) => {
+
+})
+
 module.exports = router
