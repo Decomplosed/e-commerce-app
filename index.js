@@ -16,6 +16,7 @@ app.use(
 )
 
 app.use(authRouter)
+app.use(adminProductsRouter)
 app.use(productsRouter)
 
 app.listen(3000, () => {
