@@ -12,6 +12,9 @@ router.post('/cart/products', async (req, res) => {
     cart = await cartsRepo.getOne(req.session.cartId)
   }
 
+  const existingItem = cart.items.find(item => item.id === req.body.productId)
+
+
   res.send('Product added to cart')
 })
 
