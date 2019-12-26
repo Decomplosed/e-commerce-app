@@ -17,6 +17,7 @@ router.post('/cart/products', async (req, res) => {
   if (existingItem) {
     existingItem.quantity++
   } else {
+    cart.items.push({ id: req.body.productId, quantity: 1 })
   }
 
   res.send('Product added to cart')
