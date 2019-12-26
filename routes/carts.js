@@ -45,4 +45,16 @@ router.get('/cart', async (req, res) => {
   res.send(cartShowTemplate({ items: cart.items }))
 })
 
+router.post('/cart/products/delete', async (req, res) => {
+  const { itemId } = req.body
+
+  cart = await cartsRepo.getOne(req.session.cartId)
+
+  const items = cart.items.filter(item => item.id !== itemId)
+
+  await cartsRepo.update(req.session.cartId, { items })
+
+  res.redirect('/cart')
+})
+
 module.exports = router
