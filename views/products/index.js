@@ -7,7 +7,7 @@ module.exports = ({ products }) => {
         <div class="column is-one-quarter">
           <div class="card product-card">
             <figure>
-              <img src="data:image/pngbase64, ${product.image}"/>
+              <img src="data:image/png;base64, ${product.image}"/>
             </figure>
             <div class="card-content">
               <h3 class="subtitle">${product.title}</h3>
